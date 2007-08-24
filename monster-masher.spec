@@ -12,11 +12,11 @@ URL:		http://www.cs.auc.dk/~olau/monster-masher/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Source:		http://www.cs.auc.dk/~olau/monster-masher/source/%{name}-%{version}.tar.bz2
+Patch: monster-masher-1.8-desktopentry.patch
 
 BuildRequires:	gconfmm2.6-devel >= 2.0.1
 BuildRequires:	libgnomeuimm2.6-devel
 BuildRequires:	ImageMagick
-BuildRequires:  desktop-file-utils
 
 %description
 Monster Masher is an action game for the GNOME desktop environment.
@@ -26,6 +26,7 @@ by mashing the monsters with stone blocks.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %configure2_5x --bindir=%{_gamesbindir}
@@ -47,10 +48,6 @@ cat > %{buildroot}%{_menudir}/%{name} << _EOF_
  title="Monster Masher" \
  startup_notify="true" xdg="true"
 _EOF_
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="X-MandrivaLinux-MoreApplications-Games-Other" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 # icons
 mkdir -p %{buildroot}%{_iconsdir} %{buildroot}%{_miconsdir}
