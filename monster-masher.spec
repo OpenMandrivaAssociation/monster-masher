@@ -37,17 +37,6 @@ rm -rf %{buildroot}
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
 # menu entry
-mkdir -p %{buildroot}%{_menudir}
-cat > %{buildroot}%{_menudir}/%{name} << _EOF_
-?package(%{name}): \
- command="%{_gamesbindir}/monster-masher" \
- icon="monster-masher.png" \
- longtitle="Mash monsters and save the gnomes" \
- needs="x11" \
- section="More Applications/Games/Other" \
- title="Monster Masher" \
- startup_notify="true" xdg="true"
-_EOF_
 
 # icons
 mkdir -p %{buildroot}%{_iconsdir} %{buildroot}%{_miconsdir}
@@ -86,7 +75,6 @@ rm -rf %{buildroot}
 %{_datadir}/pixmaps/*
 %{_datadir}/%{name}
 %{_sysconfdir}/gconf/schemas/*.schemas
-%{_menudir}/%{name}
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
