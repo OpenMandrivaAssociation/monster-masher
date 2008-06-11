@@ -48,18 +48,10 @@ convert -geometry 16x16 monster-masher.png %{buildroot}%{_miconsdir}/monster-mas
 
 %post
 %update_menus
-export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
-for SCHEMA in monster-masher; do
-    gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/$SCHEMA.schemas > /dev/null
-done
+%post_install_gconf_schemas monster-masher
 
 %preun
-if [ "$1" = "0" ]; then
-    export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
-    for SCHEMA in monster-masher; do
-        gconftool-2 --makefile-uninstall-rule %{_sysconfdir}/gconf/schemas/$SCHEMA.schemas > /dev/null
-    done
-fi
+%preun_uninstall_gconf_schemas monster-masher
 
 %postun
 %clean_menus
