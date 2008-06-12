@@ -46,15 +46,19 @@ convert -geometry 16x16 monster-masher.png %{buildroot}%{_miconsdir}/monster-mas
 
 %{find_lang} %{name}
 
+%if %mdkversion < 200900
 %post
 %update_menus
 %post_install_gconf_schemas monster-masher
+%endif
 
 %preun
 %preun_uninstall_gconf_schemas monster-masher
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
+%endif
 
 %clean
 rm -rf %{buildroot}
