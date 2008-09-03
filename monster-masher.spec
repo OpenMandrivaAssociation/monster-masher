@@ -1,19 +1,20 @@
 %define	name	monster-masher
 %define version 1.8
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary:	Clean caves by mashing monsters with stone
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-License:	GPL
+License:	GPLv2+
 Group:		Games/Other
 URL:		http://www.cs.auc.dk/~olau/monster-masher/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Source:		http://www.cs.auc.dk/~olau/monster-masher/source/%{name}-%{version}.tar.bz2
 Patch: monster-masher-1.8-desktopentry.patch
-
+# add handler to close the about dialog (bug #43019)
+Patch1: monster-masher-1.8-about-dialog.patch
 BuildRequires:	gconfmm2.6-devel >= 2.0.1
 BuildRequires:	libgnomeuimm2.6-devel
 BuildRequires:	ImageMagick
@@ -27,6 +28,7 @@ by mashing the monsters with stone blocks.
 %prep
 %setup -q
 %patch -p1
+%patch1 -p1
 
 %build
 %configure2_5x --bindir=%{_gamesbindir}
