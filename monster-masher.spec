@@ -17,7 +17,7 @@ Patch: monster-masher-1.8-desktopentry.patch
 Patch1: monster-masher-1.8-about-dialog.patch
 BuildRequires:	gconfmm2.6-devel >= 2.0.1
 BuildRequires:	libgnomeuimm2.6-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	intltool
 
 %description
