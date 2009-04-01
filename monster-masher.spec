@@ -1,13 +1,13 @@
 %define	name	monster-masher
 %define version 1.8.1
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:	Clean caves by mashing monsters with stone
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 License:	GPLv2+
-Group:		Games/Other
+Group:		Games/Arcade
 URL:		http://www.cs.auc.dk/~olau/monster-masher/
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
