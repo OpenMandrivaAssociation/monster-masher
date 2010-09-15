@@ -1,6 +1,6 @@
 %define	name	monster-masher
 %define version 1.8.1
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary:	Clean caves by mashing monsters with stone
 Name:		%{name}
@@ -17,6 +17,7 @@ Patch: monster-masher-1.8-desktopentry.patch
 Patch1: monster-masher-1.8-about-dialog.patch
 BuildRequires:	gconfmm2.6-devel >= 2.0.1
 BuildRequires:	libgnomeuimm2.6-devel
+BuildRequires:	esound-devel
 BuildRequires:	imagemagick
 BuildRequires:	intltool
 
@@ -33,7 +34,7 @@ by mashing the monsters with stone blocks.
 
 %build
 %configure2_5x --bindir=%{_gamesbindir}
-%make
+%make LIBS=-lesd
 
 %install
 rm -rf %{buildroot}
