@@ -1,0 +1,40 @@
+diff -p -up monster-masher-1.8/src/main-window.cpp~ monster-masher-1.8/src/main-window.cpp
+--- monster-masher-1.8/src/main-window.cpp~	2005-10-09 13:43:28.000000000 +0200
++++ monster-masher-1.8/src/main-window.cpp	2008-09-03 18:29:10.000000000 +0200
+@@ -395,6 +395,16 @@ void MainWindow::on_quit_activated()
+   window->hide();
+ }
+ 
++void MainWindow::on_about_dialog_response(int response_id)
++{
++  if((response_id == Gtk::RESPONSE_CLOSE) ||
++     (response_id == Gtk::RESPONSE_CANCEL) )
++    {
++      about->hide();
++    }
++}
++
++
+ void MainWindow::on_about_activated()
+ {
+   std::vector<Glib::ustring> authors;
+@@ -422,6 +432,8 @@ void MainWindow::on_about_activated()
+     about->set_translator_credits(_("translator-credits"));
+     about->set_logo(icon);
+     about->set_icon(icon);
++    about->signal_response().connect(sigc::mem_fun(*this, &MainWindow::on_about_dialog_response) );
++
+     about->show();
+   }
+   else {
+diff -p -up monster-masher-1.8/src/main-window.hpp~ monster-masher-1.8/src/main-window.hpp
+--- monster-masher-1.8/src/main-window.hpp~	2005-10-09 13:45:07.000000000 +0200
++++ monster-masher-1.8/src/main-window.hpp	2008-09-03 17:56:01.000000000 +0200
+@@ -97,6 +97,7 @@ private:
+   void on_introduction_activated();
+   void on_preferences_activated();
+   void on_about_activated();
++  void on_about_dialog_response(int response_id);
+   void on_quit_activated();
+ 
+   // callbacks for game menu

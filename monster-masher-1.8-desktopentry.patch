@@ -1,0 +1,10 @@
+--- monster-masher-1.8/monster-masher.desktop.in~	2003-08-02 12:48:39.000000000 +0200
++++ monster-masher-1.8/monster-masher.desktop.in	2007-08-24 09:53:18.000000000 +0200
+@@ -6,5 +6,5 @@ Exec=monster-masher
+ Icon=monster-masher.png
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Application;Game;ArcadeGame;
+-StartupNotification=true
++Categories=GNOME;GTK;Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Other;
++StartupNotify=true
