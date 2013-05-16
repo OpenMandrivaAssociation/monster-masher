@@ -1,6 +1,6 @@
 %define	name	monster-masher
 %define version 1.8.1
-%define release %mkrel 5
+%define release  6
 
 Summary:	Clean caves by mashing monsters with stone
 Name:		%{name}
@@ -9,7 +9,6 @@ Release:	%{release}
 License:	GPLv2+
 Group:		Games/Arcade
 URL:		http://www.cs.auc.dk/~olau/monster-masher/
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Source:		http://www.cs.auc.dk/~olau/monster-masher/source/%{name}-%{version}.tar.bz2
 Patch: monster-masher-1.8-desktopentry.patch
