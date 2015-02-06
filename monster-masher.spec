@@ -1,6 +1,6 @@
 %define	name	monster-masher
 %define version 1.8.1
-%define release  6
+%define release  7
 
 Summary:	Clean caves by mashing monsters with stone
 Name:		%{name}
