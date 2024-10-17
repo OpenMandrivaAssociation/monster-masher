@@ -8,7 +8,7 @@ Version:	%{version}
 Release:	%{release}
 License:	GPLv2+
 Group:		Games/Arcade
-URL:		http://www.cs.auc.dk/~olau/monster-masher/
+URL:		https://www.cs.auc.dk/~olau/monster-masher/
 
 Source:		http://www.cs.auc.dk/~olau/monster-masher/source/%{name}-%{version}.tar.bz2
 Patch: monster-masher-1.8-desktopentry.patch
