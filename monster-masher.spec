@@ -14,6 +14,11 @@ Source:		http://www.cs.auc.dk/~olau/monster-masher/source/%{name}-%{version}.tar
 Patch: monster-masher-1.8-desktopentry.patch
 # add handler to close the about dialog (bug #43019)
 Patch1: monster-masher-1.8-about-dialog.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gconfmm2.6-devel >= 2.0.1
 BuildRequires:	pkgconfig(libgnomeuimm-2.6)
 BuildRequires:	esound-devel
